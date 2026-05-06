@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Download — Titan Edge Ventures</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #080c1a;
+      --navy-mid: #0d1422;
+      --navy-card: #0f1827;
+      --accent: #7eb3e8;
+      --accent-dim: rgba(126,179,232,0.08);
+      --border: rgba(126,179,232,0.1);
+      --border-bright: rgba(126,179,232,0.25);
+      --silver: #c8d0dc;
+      --silver-bright: #e8edf5;
+      --silver-dim: #8899aa;
+      --success: #4ade80;
+      --text-dim: #6a7a8e;
+      --grad-silver: linear-gradient(135deg, #e8edf5 0%, #8899aa 50%, #c8d0dc 100%);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--navy);
+      color: var(--silver);
+      font-family: 'Rajdhani', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 24px;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(126,179,232,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 48px;
+      text-decoration: none;
+    }
+    .logo-text {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--grad-silver);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(74,222,128,0.1);
+      border: 1px solid rgba(74,222,128,0.3);
+      padding: 8px 20px;
+      border-radius: 2px;
+      margin-bottom: 32px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--success);
+    }
+    .dot {
+      width: 8px; height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .hero {
+      text-align: center;
+      max-width: 580px;
+      margin-bottom: 48px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--silver-bright);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .hero p {
+      font-size: 16px;
+      color: var(--silver-dim);
+      line-height: 1.7;
+    }
+    .download-card {
+      width: 100%;
+      max-width: 520px;
+      border: 1px solid var(--border-bright);
+      background: var(--navy-card);
+      padding: 48px 40px;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .download-card::before {
+      content: 'YOUR PURCHASE';
+      position: absolute;
+      top: -1px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      background: var(--accent);
+      color: var(--navy);
+      padding: 4px 16px;
+    }
+    .product-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.8rem;
+      color: var(--silver-bright);
+      margin-bottom: 8px;
+    }
+    .product-desc {
+      font-size: 14px;
+      color: var(--silver-dim);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+    .includes {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    .includes-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .includes li {
+      list-style: none;
+      font-size: 14px;
+      color: var(--silver);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .includes li::before {
+      content: '→';
+      color: var(--accent);
+    }
+    .download-btn {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      background: var(--accent);
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.2s;
+      margin-bottom: 12px;
+    }
+    .download-btn:hover {
+      background: #6b9fd4;
+      transform: translateY(-1px);
+    }
+    .download-note {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-align: center;
+    }
+    .upsell {
+      width: 100%;
+      max-width: 520px;
+      border: 1px solid var(--border);
+      background: var(--accent-dim);
+      padding: 32px 36px;
+      text-align: center;
+    }
+    .upsell-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .upsell h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.4rem;
+      color: var(--silver-bright);
+      margin-bottom: 10px;
+    }
+    .upsell p {
+      font-size: 13px;
+      color: var(--silver-dim);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .upsell-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: transparent;
+      border: 1px solid var(--border-bright);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .upsell-btn:hover {
+      background: var(--accent);
+      color: var(--navy);
+    }
+    .footer {
+      margin-top: 48px;
+      font-size: 11px;
+      color: var(--text-dim);
+      text-align: center;
+    }
+    @media(max-width:600px) {
+      .download-card { padding: 36px 20px; }
+      .upsell { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="https://titanedge15.github.io" class="logo">
+    <svg width="30" height="30" viewBox="0 0 34 34" fill="none">
+      <polygon points="17,1 33,9 33,25 17,33 1,25 1,9" fill="none" stroke="url(#sg)" stroke-width="1"/>
+      <text x="17" y="22" text-anchor="middle" font-family="Rajdhani,sans-serif" font-weight="700" font-size="12" fill="url(#sg)">TE</text>
+      <defs><linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#e8edf5"/><stop offset="50%" stop-color="#8899aa"/><stop offset="100%" stop-color="#c8d0dc"/></linearGradient></defs>
+    </svg>
+    <span class="logo-text">Titan Edge Ventures</span>
+  </a>
+
+  <div class="badge">
+    <div class="dot"></div>
+    Payment Confirmed — Download Ready
+  </div>
+
+  <div class="hero">
+    <h1>Your kit is ready.<br>Start posting today.</h1>
+    <p>Thank you for your purchase. Your Healthcare Practice Content Engine Kit is available for immediate download below.</p>
+  </div>
+
+  <div class="download-card">
+    <div class="product-icon">📱</div>
+    <div class="product-name">Healthcare Practice Content Engine Kit</div>
+    <p class="product-desc">30 days of done-for-you social media content for med spas, chiropractic, dental, dermatology, and wellness practices.</p>
+    <div class="divider"></div>
+    <div class="includes">
+      <div class="includes-title">What's included</div>
+      <ul>
+        <li>30 ready-to-post social media captions</li>
+        <li>4-week themed content calendar</li>
+        <li>Hashtag sets for every practice type</li>
+        <li>Story and Reel ideas for each week</li>
+        <li>Engagement prompts that drive comments</li>
+        <li>Pro posting tips for maximum reach</li>
+      </ul>
+    </div>
+    <a href="https://drive.google.com/file/d/1-e2HUJ1pZuAT9rVVYjx_jxuQL8BejugB/view?usp=share_link" class="download-btn" target="_blank">Download Your Kit Now</a>
+    <p class="download-note">PDF file · Opens in Google Drive · Save to your device</p>
+  </div>
+
+  <div class="upsell">
+    <div class="upsell-tag">Want More Results?</div>
+    <h3>Let us handle your missed calls too.</h3>
+    <p>Our $397 Missed Call Text-Back Setup automatically responds to every missed caller within 60 seconds, 24/7. Set it up once, never lose a patient lead again.</p>
+    <a href="https://buy.stripe.com/aFaaEW4Uv8a23to0z52Ji06" class="upsell-btn">Get the Automation Setup — $397</a>
+  </div>
+
+  <div class="footer">
+    © 2026 Titan Edge Ventures LLC · Questions? erica@titanedgesystems.com
+  </div>
+
+</body>
+</html>
